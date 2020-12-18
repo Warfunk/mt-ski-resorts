@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mt-ski-resorts/static/css/main.91f93a58.chunk.css",
+    "main.js": "/mt-ski-resorts/static/js/main.9e960b6c.chunk.js",
+    "main.js.map": "/mt-ski-resorts/static/js/main.9e960b6c.chunk.js.map",
+    "runtime-main.js": "/mt-ski-resorts/static/js/runtime-main.b70079ec.js",
+    "runtime-main.js.map": "/mt-ski-resorts/static/js/runtime-main.b70079ec.js.map",
+    "static/js/2.f0b533c1.chunk.js": "/mt-ski-resorts/static/js/2.f0b533c1.chunk.js",
+    "static/js/2.f0b533c1.chunk.js.map": "/mt-ski-resorts/static/js/2.f0b533c1.chunk.js.map",
+    "static/js/3.aa41f826.chunk.js": "/mt-ski-resorts/static/js/3.aa41f826.chunk.js",
+    "static/js/3.aa41f826.chunk.js.map": "/mt-ski-resorts/static/js/3.aa41f826.chunk.js.map",
+    "index.html": "/mt-ski-resorts/index.html",
+    "static/css/main.91f93a58.chunk.css.map": "/mt-ski-resorts/static/css/main.91f93a58.chunk.css.map",
+    "static/js/2.f0b533c1.chunk.js.LICENSE.txt": "/mt-ski-resorts/static/js/2.f0b533c1.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b70079ec.js",
+    "static/js/2.f0b533c1.chunk.js",
+    "static/css/main.91f93a58.chunk.css",
+    "static/js/main.9e960b6c.chunk.js"
+  ]
+}
