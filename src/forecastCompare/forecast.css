@@ -1,0 +1,84 @@
+.compareResort {
+  line-height: 25px;
+  margin-bottom: 1%;
+  max-width: 1000px;
+}
+
+.name {
+  color: #0b2b26;
+}
+
+.border-line {
+  border-bottom: 1px solid black;
+  margin-top: 1.5rem;
+}
+
+.bd {
+  font-size: large;
+  color: black;
+  margin-bottom: -1rem;
+}
+
+.snow {
+  flex-wrap: wrap;
+  margin-bottom: 2%;
+}
+
+.forecast {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.daily {
+  display: inline-grid;
+  align-content: center;
+  border-bottom: 2px solid white;
+  border-left: 2px solid white;
+}
+
+.dayOfWeek {
+  font-size: medium;
+  font-weight: bold;
+  padding: 1rem;
+  float: inherit;
+}
+
+.precip {
+  margin-left: 1rem;
+}
+
+.high {
+  color: red;
+  margin-left: 1rem;
+}
+
+.low {
+  color: blue;
+  margin-left: 1rem;
+}
+
+.weather {
+  color: #153c9d;
+  margin-left: 1rem;
+}
+
+.weath-icon {
+  height: 4rem;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 350px) {
+  .compareResort {
+    margin-left: 0;
+  }
+
+  .forecast {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (max-width: 275px) {
+  .forecast {
+    grid-template-columns: 1fr;
+  }
+}

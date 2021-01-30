@@ -1,0 +1,108 @@
+.resorts {
+  color: rgb(0, 0, 5);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  max-width: 1120px;
+  border-radius: 2%;
+  background: rgb(209, 234, 243);
+}
+.resort {
+  border-radius: 3%;
+  background: #1ddbdb;
+  width: 250px;
+  margin: 15px;
+}
+
+.desc {
+  height: 7em;
+}
+
+.image {
+  margin: 5px;
+  padding: 5px;
+  height: 150px;
+  width: 200px;
+}
+
+h6 {
+  margin: 5px;
+  padding: 5px;
+  font-size: small;
+}
+
+@media only screen and (max-width: 600px) {
+  .resort {
+    width: 200px;
+    margin: 2px;
+  }
+
+  .image {
+    margin: 2px;
+    width: 150px;
+    height: 130px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .resort {
+    border-radius: 3%;
+    width: 200px;
+    height: 230px;
+    margin: 2px;
+  }
+
+  .desc {
+    height: 5em;
+  }
+  .image {
+    margin: 2px;
+    padding: 2px;
+    height: 80px;
+    width: 100px;
+  }
+
+  h2 {
+    font-size: 15px;
+  }
+
+  h6 {
+    font-size: 11px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-top: 5px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .resorts {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (max-height: 300px) {
+  .resort {
+    width: 200px;
+    height: 200px;
+    margin: 2px;
+    font-size: xx-small;
+  }
+
+  .image {
+    margin: 1px;
+    padding: 1px;
+    height: 50px;
+    width: 75px;
+  }
+
+  .desc {
+    margin-bottom: 1%;
+  }
+
+  .buttons {
+    margin-top: 15px;
+  }
+}
