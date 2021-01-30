@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { React, useState } from "react";
 
 const Fields = ({ route, loadUser, onRouteChange }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
   const onUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -18,10 +18,10 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
   };
 
   const onSubmitSignIn = () => {
-    fetch('https://calm-crag-40780.herokuapp.com/signin', {
-      method: 'post',
+    fetch("https://calm-crag-40780.herokuapp.com/signin", {
+      method: "post",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username: username,
@@ -32,16 +32,16 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
       .then((user) => {
         if (user.id) {
           loadUser(user);
-          onRouteChange('home');
+          onRouteChange("home");
         }
       });
   };
 
   const onSubmitRegister = () => {
-    fetch('https://calm-crag-40780.herokuapp.com/register', {
-      method: 'post',
+    fetch("https://calm-crag-40780.herokuapp.com/register", {
+      method: "post",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         username: username,
@@ -53,9 +53,9 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
       .then((user) => {
         if (user.id) {
           loadUser(user);
-          onRouteChange('home');
+          onRouteChange("home");
         } else {
-          alert('Please fill out form completly');
+          alert("Please fill out form completly");
         }
       });
   };
@@ -65,7 +65,7 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
       <main className="pa4 black-80">
         <div className="measure">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            {route === 'register' ? (
+            {route === "register" ? (
               // Register header and name input
               <div>
                 <legend className="f2 fw6 ph0 mh0 center">Register</legend>
@@ -112,7 +112,7 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
               />
             </div>
           </fieldset>
-          {route === 'register' ? ( // Submit Register
+          {route === "register" ? ( // Submit Register
             <div className="">
               <input
                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
@@ -134,7 +134,7 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
               </div>
               <div className="lh-copy mt3">
                 <p
-                  onClick={() => onRouteChange('register')}
+                  onClick={() => onRouteChange("register")}
                   className="f6 link dim black db pointer"
                 >
                   Register
@@ -142,7 +142,7 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
               </div>
               <div className="lh-copy mt3">
                 <p
-                  onClick={() => onRouteChange('nonuser')}
+                  onClick={() => onRouteChange("nonuser")}
                   className="f6 link dim black db pointer"
                 >
                   Skip
