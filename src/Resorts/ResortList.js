@@ -1,7 +1,7 @@
 import { resorts } from "./resorts";
 import "./resortList.css";
 
-const ResortList = ({ handleClick, resortCompare }) => {
+const ResortList = ({ dispatch }) => {
   return (
     <div>
       <div className="resorts">
@@ -19,7 +19,12 @@ const ResortList = ({ handleClick, resortCompare }) => {
                 </button>
               </a>
               <button
-                onClick={() => handleClick(resort)}
+                onClick={() =>
+                  dispatch({
+                    type: "SET_RESORT_COMPARE",
+                    resort: resort.id,
+                  })
+                }
                 className="f6 grow no-underline br-pill ba bw1 ph3 mb2 dib"
               >
                 Compare Resort

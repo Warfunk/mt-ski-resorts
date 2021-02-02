@@ -1,4 +1,4 @@
-import { useState, useReducer, useMemo } from 'react';
+import { useReducer, useMemo, useCallback } from 'react';
 
 import SaveAndReset from './forecastCompare/SaveAndReset';
 import Welcome from './Welcome';
@@ -6,6 +6,7 @@ import ResortList from './Resorts/ResortList';
 import Navigation from './SignInRegister/Navigation';
 import Fields from './SignInRegister/Fields';
 import CompareSnow from './forecastCompare/CompareSnow';
+import reducer from './reducer.js';
 
 const initialState = {
   isSignedIn: false,
@@ -15,138 +16,54 @@ const initialState = {
   id: '',
 };
 
-const reducer = (state, action) => {
-  switch (action.type) {
-    case 'ROUTE_CHANGE': {
-      if (route === 'signin' || route === 'register') {
-        return {
-          ...state,
-          id: '',
-          isSignedIn: true,
-          route: action.route,
-        };
-      }
-      if (route === 'home') {
-        return {
-          ...state,
-          isSignedIn: true,
-          route: action.route,
-        };
-      }
-      if (route === 'nonuser') {
-        return {
-          ...state,
-          resortCompare: [],
-          showResorts: true,
-          isSignedIn: false,
-          id: '',
-          route: action.route,
-        };
-      }
-    }
-    default:
-      return state;
-  }
-};
-
 const App = () => {
-  // const [state, dispatch] = useReducer(reducer, initialState);
-  // then you would use it like this:
-  // dispatch({ type: 'ROUTE_CHANGE', route: newRoute });
-  // I'm not going to change everything out for the sake of time
-  // Honestly most juniors won't know how to use useReducer, but it's good to practice and get use to it
-  // there are a lot of patterns outside of React that will be similar
-  const [isSignedIn, setIsSignedIn] = useState(false);
-  const [route, setRoute] = useState('nonuser');
-  const [showResorts, setShowResorts] = useState(true);
-  const [resortCompare, setResortCompare] = useState([]);
-  const [id, setId] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
 
-  const onRouteChange = (route) => {
-    if (route === 'signin' || route === 'register') {
-      setId('');
-      setIsSignedIn(false);
-    } else if (route === 'home') {
-      setIsSignedIn(true);
-    } else if (route === 'nonuser') {
-      setResortCompare([]);
-      setShowResorts(true);
-      setIsSignedIn(false);
-      setId('');
-    }
-    setRoute(route);
-  };
-
-  const handleClick = (resort) => {
-    if (!resortCompare.includes(resort.id)) {
-      setResortCompare([...resortCompare, resort.id]);
-    }
-  };
-
-  const hideResorts = () => {
-    // when state is based on the current state, you the callback method like below to set it
-    setShowResorts((s) => !s);
-  };
-
-  const loadUser = (data) => {
-    setResortCompare(data.resorts);
-    setShowResorts(data.showresorts);
-    setId(data.id);
-  };
-
-  const onSave = () => {
+  const onSave = useCallback(() => {
     fetch('https://calm-crag-40780.herokuapp.com/save', {
       method: 'put',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        id: id,
-        resorts: resortCompare,
-        showResorts: showResorts,
+        id: state.id,
+        resorts: state.resortCompare,
+        showResorts: state.showResorts,
       }),
     }).catch(console.log);
-  };
+  }, [state.id, state.resortCompare, state.showResorts]);
 
   const saveUi = useMemo(() => {
-    if (route === 'nonuser') {
+    if (state.route === 'nonuser') {
       return (
-        <h3 onClick={() => onRouteChange('signin')} className="btm">
+        <h3
+          onClick={() => dispatch({ type: 'ROUTE_CHANGE', route: 'signin' })}
+          className='btm'
+        >
           Sign In to Save Resorts
         </h3>
       );
     }
-    if (route === 'home') {
-      return (
-        <SaveAndReset onSave={onSave} setResortCompare={setResortCompare} />
-      );
+    if (state.route === 'home') {
+      return <SaveAndReset onSave={onSave} dispatch={dispatch} />;
     }
     return null;
-  }, [route, onSave, setResortCompare, onRouteChange]);
+  }, [state.route, dispatch, onSave]);
 
   return (
-    <div className="App">
-      <Navigation onRouteChange={onRouteChange} isSignedIn={isSignedIn} />
+    <div className='App'>
+      <Navigation isSignedIn={state.isSignedIn} dispatch={dispatch} />
       <Welcome
-        route={route}
-        showResorts={showResorts}
-        hideResorts={hideResorts}
+        route={state.route}
+        showResorts={state.showResorts}
+        dispatch={dispatch}
       />
-      {route === 'signin' || route === 'register' ? (
-        <Fields
-          route={route}
-          loadUser={loadUser}
-          onRouteChange={onRouteChange}
-        />
+      {state.route === 'register' || state.route === 'signin' ? (
+        <Fields route={state.route} dispatch={dispatch} />
       ) : (
         <div>
-          {showResorts ? (
-            <ResortList
-              handleClick={handleClick}
-              resortCompare={resortCompare}
-            />
-          ) : null}
-          <CompareSnow snow={resortCompare} />
+          {state.showResorts ? <ResortList dispatch={dispatch} /> : null}
+          <CompareSnow snow={state.resortCompare} />
         </div>
       )}
       {saveUi}

@@ -1,12 +1,12 @@
 import React from "react";
 import "./Nav.css";
 
-const Navigation = ({ onRouteChange, isSignedIn }) => {
+const Navigation = ({ isSignedIn, dispatch }) => {
   if (isSignedIn === true) {
     return (
       <nav className="nav">
         <p
-          onClick={() => onRouteChange("signin")}
+          onClick={() => dispatch({ type: "ROUTE_CHANGE", route: "signin" })}
           className="fs link dim black underline pa3 pointer"
         >
           Sign Out
@@ -17,13 +17,13 @@ const Navigation = ({ onRouteChange, isSignedIn }) => {
     return (
       <nav className="nav">
         <p
-          onClick={() => onRouteChange("signin")}
+          onClick={() => dispatch({ type: "ROUTE_CHANGE", route: "signin" })}
           className="fs link dim black underline pa3 pointer"
         >
           Sign In
         </p>
         <p
-          onClick={() => onRouteChange("register")}
+          onClick={() => dispatch({ type: "ROUTE_CHANGE", route: "register" })}
           className="fs link dim black underline pa3 pointer"
         >
           Register

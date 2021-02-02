@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const Fields = ({ route, loadUser, onRouteChange }) => {
+const Fields = ({ route, dispatch }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
@@ -31,8 +31,8 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
       .then((response) => response.json())
       .then((user) => {
         if (user.id) {
-          loadUser(user);
-          onRouteChange('home');
+          dispatch({ type: 'LOAD_USER', data: user });
+          dispatch({ type: 'ROUTE_CHANGE', route: 'home' });
         }
       });
   };
@@ -52,8 +52,8 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
       .then((response) => response.json())
       .then((user) => {
         if (user.id) {
-          loadUser(user);
-          onRouteChange('home');
+          dispatch({ type: 'LOAD_USER', data: user });
+          dispatch({ type: 'ROUTE_CHANGE', route: 'home' });
         } else {
           alert('Please fill out form completly');
         }
@@ -61,89 +61,93 @@ const Fields = ({ route, loadUser, onRouteChange }) => {
   };
 
   return (
-    <article className="br3 ba shadow-5 b--black-10 mv4 mw5 center">
-      <main className="pa4 black-80">
-        <div className="measure">
-          <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
+    <article className='br3 ba shadow-5 b--black-10 mv4 mw5 center'>
+      <main className='pa4 black-80'>
+        <div className='measure'>
+          <fieldset id='sign_up' className='ba b--transparent ph0 mh0'>
             {route === 'register' ? (
               // Register header and name input
               <div>
-                <legend className="f2 fw6 ph0 mh0 center">Register</legend>
-                <div className="mt3">
-                  <label className="db fw6 lh-copy f6" htmlFor="name">
+                <legend className='f2 fw6 ph0 mh0 center'>Register</legend>
+                <div className='mt3'>
+                  <label className='db fw6 lh-copy f6' htmlFor='name'>
                     Name
                   </label>
                   <input
                     onChange={onNameChange}
-                    className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                    type="name"
-                    name="name"
-                    id="name"
+                    className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                    type='name'
+                    name='name'
+                    id='name'
                   />
                 </div>
               </div>
             ) : (
               // Sign In Header
-              <legend className="f2 fw6 ph0 mh0 center">Sign In</legend>
+              <legend className='f2 fw6 ph0 mh0 center'>Sign In</legend>
             )}
             {/* Same for both sign in and register  */}
-            <div className="mt3">
-              <label className="db fw6 lh-copy f6" htmlFor="email-address">
+            <div className='mt3'>
+              <label className='db fw6 lh-copy f6' htmlFor='email-address'>
                 Username
               </label>
               <input
                 onChange={onUsernameChange}
-                className="pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                type="text"
-                name="Username"
-                id="Username"
+                className='pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                type='text'
+                name='Username'
+                id='Username'
               />
             </div>
-            <div className="mv3">
-              <label className="db fw6 lh-copy f6" htmlFor="password">
+            <div className='mv3'>
+              <label className='db fw6 lh-copy f6' htmlFor='password'>
                 Password
               </label>
               <input
                 onChange={onPasswordChange}
-                className="b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100"
-                type="password"
-                name="password"
-                id="password"
+                className='b pa2 input-reset ba bg-transparent hover-bg-black hover-white w-100'
+                type='password'
+                name='password'
+                id='password'
               />
             </div>
           </fieldset>
           {route === 'register' ? ( // Submit Register
-            <div className="">
+            <div className=''>
               <input
-                className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                type="submit"
-                value="Register"
+                className='b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib'
+                type='submit'
+                value='Register'
                 onClick={onSubmitRegister}
               />
             </div>
           ) : (
             // Submit sign in and other Sign In Page Options
             <div>
-              <div className="">
+              <div className=''>
                 <input
-                  className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
-                  type="submit"
-                  value="Sign in"
+                  className='b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib'
+                  type='submit'
+                  value='Sign in'
                   onClick={onSubmitSignIn}
                 />
               </div>
-              <div className="lh-copy mt3">
+              <div className='lh-copy mt3'>
                 <p
-                  onClick={() => onRouteChange('register')}
-                  className="f6 link dim black db pointer"
+                  onClick={() =>
+                    dispatch({ type: 'ROUTE_CHANGE', route: 'register' })
+                  }
+                  className='f6 link dim black db pointer'
                 >
                   Register
                 </p>
               </div>
-              <div className="lh-copy mt3">
+              <div className='lh-copy mt3'>
                 <p
-                  onClick={() => onRouteChange('nonuser')}
-                  className="f6 link dim black db pointer"
+                  onClick={() =>
+                    dispatch({ type: 'ROUTE_CHANGE', route: 'nonuser' })
+                  }
+                  className='f6 link dim black db pointer'
                 >
                   Skip
                 </p>

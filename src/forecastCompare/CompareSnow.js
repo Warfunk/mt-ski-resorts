@@ -9,7 +9,7 @@ const CompareSnow = ({ snow }) => {
     return (
       <div>
         {resortsToCompare.map((resort) => (
-          <Resort resort={resort} />
+          <Resort resort={resort} key={resort.id} />
         ))}
       </div>
     );

@@ -26,7 +26,7 @@ const Resort = ({ resort }) => {
       <h6>
         {" "}
         Average Snowfall: {resort.avgSnow} | Acreage: {resort.acreage} |
-        Vertical: {resort.vert} | <span class="bd">&#9670;+ </span>
+        Vertical: {resort.vert} | <span className="bd">&#9670;+ </span>
         {resort.blackDaimonds} | &#128998; {resort.blues} | &#128994;{" "}
         {resort.greens}
       </h6>

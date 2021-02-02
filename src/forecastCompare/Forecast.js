@@ -13,7 +13,7 @@ const Forecast = ({ forecast }) => {
           const weather = day.day.condition.text;
 
           return (
-            <div className="daily">
+            <div className="daily" key={dayOfWeek}>
               <div className="dayOfWeek">{dayOfWeek.toUpperCase()}</div>
               <div className="high"> High: {day.day.maxtemp_f} </div>
               <div className="low"> Low: {day.day.mintemp_f} </div>
