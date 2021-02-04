@@ -55,8 +55,11 @@ const reducer = (state, action) => {
           ...state,
           resortCompare: [...state.resortCompare, action.resort],
         };
+      } else {
+        return {
+          ...state,
+        };
       }
-      break;
     }
     case 'LOAD_USER': {
       return {
