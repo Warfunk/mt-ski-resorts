@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import Forecast from "./Forecast";
+import { useState, useEffect } from 'react';
+import Forecast from './Forecast';
 
 const Resort = ({ resort }) => {
   const [forecast, setForecast] = useState([]);
 
   useEffect(() => {
-    fetch("https://calm-crag-40780.herokuapp.com/getForecast", {
-      method: "post",
+    fetch('https://calm-crag-40780.herokuapp.com/getForecast', {
+      method: 'post',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         lat: resort.latitude,
@@ -21,19 +21,19 @@ const Resort = ({ resort }) => {
   }, [resort.latitude, resort.longitude]);
 
   return (
-    <div key={resort.name} className="compareResort">
-      <h3 className="name">{resort.name}</h3>{" "}
+    <div key={resort.name} className='shadow-3 compareResort'>
+      <h3 className='name'>{resort.name}</h3>{' '}
       <h6>
-        {" "}
+        {' '}
         Average Snowfall: {resort.avgSnow} | Acreage: {resort.acreage} |
-        Vertical: {resort.vert} | <span className="bd">&#9670;+ </span>
-        {resort.blackDaimonds} | &#128998; {resort.blues} | &#128994;{" "}
+        Vertical: {resort.vert} | <span className='bd'>&#9670;+ </span>
+        {resort.blackDaimonds} | &#128998; {resort.blues} | &#128994;{' '}
         {resort.greens}
       </h6>
       <div>
         <Forecast forecast={forecast} />
       </div>
-      <div className="border-line"></div>
+      <div className='border-line'></div>
     </div>
   );
 };

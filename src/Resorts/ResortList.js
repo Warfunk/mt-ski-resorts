@@ -6,7 +6,7 @@ const ResortList = ({ dispatch }) => {
     <div>
       <div className='resorts'>
         {resorts.map((resort) => (
-          <div className='resort' key={resort.name}>
+          <div className='resort shadow-3 ' key={resort.name}>
             <img src={resort.img} alt='resort' className='image' />
             <div className='desc'>
               <h2>{resort.name}</h2>
