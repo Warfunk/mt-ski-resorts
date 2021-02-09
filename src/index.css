@@ -2,7 +2,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #013829;
+  color: #000808;
+  font-family: Palatino, Palatino Linotype, Palatino LT STD, Book Antiqua,
+    Georgia, serif;
 }
 
 html {
@@ -15,15 +17,20 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  background: linear-gradient(to bottom right, #16599c, #58e8e8) no-repeat;
 }
 
 button {
   cursor: pointer;
 }
 
-.App {
+.app {
   text-align: center;
+}
+
+.main {
+  background: rgba(82, 152, 175, 0.5);
+  padding-bottom: 25px;
+  border-radius: 1%;
 }
 
 .btm {
@@ -34,4 +41,19 @@ button {
 .center {
   display: flex;
   justify-content: center;
+}
+
+.welcome {
+  font-family: Cambria, Georgia, serif;
+}
+
+.bg {
+  background: url('https://www.moonlightbasin.com/wp-content/uploads/moonlight-basin-hero-tgr.jpg')
+    no-repeat;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  z-index: -10;
+  left: 0;
+  background-position: center;
 }

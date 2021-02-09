@@ -51,22 +51,25 @@ const App = () => {
   }, [state.route, dispatch, onSave]);
 
   return (
-    <div className='App'>
+    <div className='app'>
+      <div className='bg'></div>
       <Navigation isSignedIn={state.isSignedIn} dispatch={dispatch} />
       <Welcome
         route={state.route}
         showResorts={state.showResorts}
         dispatch={dispatch}
       />
-      {state.route === 'register' || state.route === 'signin' ? (
-        <Fields route={state.route} dispatch={dispatch} />
-      ) : (
-        <div>
-          {state.showResorts ? <ResortList dispatch={dispatch} /> : null}
-          <CompareSnow snow={state.resortCompare} />
-        </div>
-      )}
-      {saveUi}
+      <div className='main'>
+        {state.route === 'register' || state.route === 'signin' ? (
+          <Fields route={state.route} dispatch={dispatch} />
+        ) : (
+          <div>
+            {state.showResorts ? <ResortList dispatch={dispatch} /> : null}
+            <CompareSnow snow={state.resortCompare} />
+          </div>
+        )}
+        {saveUi}
+      </div>
     </div>
   );
 };

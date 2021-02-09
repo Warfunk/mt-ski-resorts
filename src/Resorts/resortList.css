@@ -6,11 +6,10 @@
   text-align: center;
   max-width: 1120px;
   border-radius: 2%;
-  background: rgb(209, 234, 243);
 }
 .resort {
   border-radius: 3%;
-  background: #1ddbdb;
+  background: rgba(7, 46, 129, 0.9);
   width: 250px;
   margin: 15px;
 }

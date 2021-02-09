@@ -1,7 +1,14 @@
 .compareResort {
   line-height: 25px;
   margin-bottom: 1%;
+  margin: auto;
   max-width: 1000px;
+}
+
+.compare {
+  display: flexbox;
+  justify-content: center;
+  width: 100%;
 }
 
 .name {
@@ -58,7 +65,7 @@
 }
 
 .weather {
-  color: #153c9d;
+  color: #14045e;
   margin-left: 1rem;
 }
 
