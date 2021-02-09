@@ -63,7 +63,7 @@ const App = () => {
         {state.route === 'register' || state.route === 'signin' ? (
           <Fields route={state.route} dispatch={dispatch} />
         ) : (
-          <div className='shadow-5 main'>
+          <div className='shadow-3 main'>
             {state.showResorts ? <ResortList dispatch={dispatch} /> : null}
             <CompareSnow snow={state.resortCompare} />
             {saveUi}
