@@ -9,10 +9,10 @@
   display: flexbox;
   justify-content: center;
   width: 100%;
+  font-weight: bold;
 }
 
 .name {
-  color: #0b2b26;
 }
 
 .border-line {
