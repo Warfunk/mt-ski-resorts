@@ -3,6 +3,8 @@
   margin-bottom: 1%;
   margin: auto;
   max-width: 1000px;
+  background-color: rgba(21, 142, 212, 0.4);
+  border-radius: 25px;
 }
 
 .compare {

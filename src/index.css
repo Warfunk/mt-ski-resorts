@@ -29,8 +29,8 @@ button {
 
 .main {
   padding-bottom: 25px;
-  border-radius: 1%;
-  background: rgba(82, 152, 175, 0.5);
+  border-radius: 10px;
+  background: rgba(82, 152, 175, 0.1);
 }
 
 .btm {
