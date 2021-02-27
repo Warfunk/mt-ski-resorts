@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/mt-ski-resorts/static/css/main.5934a2c8.chunk.css",
-    "main.js": "/mt-ski-resorts/static/js/main.63035881.chunk.js",
-    "main.js.map": "/mt-ski-resorts/static/js/main.63035881.chunk.js.map",
+    "main.js": "/mt-ski-resorts/static/js/main.ad0b8b89.chunk.js",
+    "main.js.map": "/mt-ski-resorts/static/js/main.ad0b8b89.chunk.js.map",
     "runtime-main.js": "/mt-ski-resorts/static/js/runtime-main.7ca1a594.js",
     "runtime-main.js.map": "/mt-ski-resorts/static/js/runtime-main.7ca1a594.js.map",
     "static/css/2.31461e4f.chunk.css": "/mt-ski-resorts/static/css/2.31461e4f.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.31461e4f.chunk.css",
     "static/js/2.45df9b00.chunk.js",
     "static/css/main.5934a2c8.chunk.css",
-    "static/js/main.63035881.chunk.js"
+    "static/js/main.ad0b8b89.chunk.js"
   ]
 }
